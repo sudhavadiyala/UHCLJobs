@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sign Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="./newusertemplate.xhtml">
+            <ui:define name="content1">
+        <div >
+            <b:container>
+            
+            <h3>Welcome to UHCL JOB Portal..</h3>
+            <h4>Please fill the below fields to complete the Registration:</h4>
+            
+            <h:form>
+                <h:panelGrid>
+                <p>
+                    <h:outputText value="Login ID"/>
+                    <b:inputText id="loginID" required="true" requiredMessage="Login ID cannot be empty"
+                                 value="#{register.loginID}"/>
+                </p>
+                
+                <p>
+                    <h:outputText value="Password"/>
+                    <b:inputText id="psw" required="true" requiredMessage="Password cannot be empty" 
+                                 value="#{register.psw}"/>
+                  
+                </p>
+                    <p>
+                        <h:outputText value="Type"></h:outputText>
+                        <b:selectOneMenu value="#{register.type}">
+                           <f:selectItem itemLabel="Applicant" itemValue="Applicant"/>
+                           <f:selectItem itemLabel="HR" itemValue="HR"/>
+                        </b:selectOneMenu>
+                    </p>
+                    <p>
+                        
+                    </p>
+                    </h:panelGrid>
+                <b:commandButton class="btn btn-primary" id="register" value="Register" action="#{register.Register()}" /> 
+                <h:messages style="color: red"></h:messages> 
+            </h:form>
+            </b:container>
+        </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

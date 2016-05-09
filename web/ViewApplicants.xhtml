@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title></title>
+        
+    </h:head>
+    <h:body style="background-color: snow">
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+        <h:form>
+        <div>
+        
+            <p:dataTable id="applicantsview" rows="#{applicationForm.applicants.size()}"
+                         value="#{applicationForm.applicants}"
+                             var="str" style="width: 900px; margin-top: 50px">
+                <p:column>            
+                    <f:facet name="header">Applicant ID</f:facet>
+                    <h:outputText value="#{str.applicantID}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Gender</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="gender"
+                                  value="#{str.gender}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Mobile No</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="mobile"
+                                  value="#{str.mobileNum}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Email Id</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="email"
+                                  value="#{str.emailID}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Education</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="edu"
+                                  value="#{str.education}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Work Experience</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="exp"
+                                  value="#{str.workExp}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Select</f:facet>
+                    <h:commandButton class="btn-success" value="Select" action="#{applicationForm.select()}">
+                        <f:param name="i" value="#{str.jid}"></f:param>
+                        <f:param name="i1" value="#{str.applicantID}"></f:param>
+                    </h:commandButton>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Reject</f:facet>
+                    <h:commandButton value="Reject" class="btn-danger" action="#{applicationForm.reject()}">
+                       <f:param name="i2" value="#{str.jid}"></f:param>
+                       <f:param name="i3" value="#{str.applicantID}"></f:param> 
+                    </h:commandButton>
+                </p:column>
+            </p:dataTable>
+            
+            <br></br>
+            <br></br>
+            
+            <h:commandLink value="Send Notification" action="#{sentmail.notification(str.jid)}">
+                <f:param name="jid" value="#{str.jobID}"></f:param>  
+                
+            </h:commandLink>
+             </div>
+        </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>View Posted Jobs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body style="background-color: snow">
+         <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+       
+        
+        <h:form>       
+        #{applicantJobSelection.ApplicantJobSelect()}
+            <p><h4>Hello #{login.loginID}, Below are the listed jobs that are posted.
+            </h4>
+                </p>
+            <p>
+                <h5>
+              Please Select or Reject the applicants by Viewing the Applications.
+            </h5></p>
+            <p:dataTable id="applicantJobSelect" rows="#{applicantJobSelection.jobs.size()}"
+                             value="#{applicantJobSelection.jobs}"
+                             var="str" style="width: 900px; margin-top: 50px">
+                <p:column>            
+                    <f:facet name="header">Job ID</f:facet>
+                    <h:outputText value="#{str.jobID}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Job Title</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="jobTitle"
+                                  value="#{str.jobtitle}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Job Description</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="jobDesc"
+                                  value="#{str.jobDesc}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Skills Required</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="skills"
+                                  value="#{str.skills}"/>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Positions</f:facet>
+                    <h:outputText styleClass="dataTableOutputTexr" id="positions"
+                                  value="#{str.positions}"/>
+                </p:column>
+                
+                <p:column>
+                    
+                    <f:facet name="header"> Applicants</f:facet>
+                    <b:commandButton value="View Applicants" class="btn-info" action="#{applicationForm.viewapplicants(str.jobID)}"></b:commandButton>
+                    
+                </p:column>
+                
+            </p:dataTable>
+             
+        </h:form>
+            </ui:define>
+         </ui:composition>
+    </h:body>
+</html>

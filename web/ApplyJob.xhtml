@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
+
+    <h:head>
+        <title>Job Application Portal</title>   
+    </h:head> 
+    <h:body>
+        
+         
+        <ui:composition template="./templateApplicant.xhtml">
+            <ui:define name="content1">
+        
+             <h:form id="ApplicationForm" style="margin-top: 40px; margin-left: 20px;">
+             <p:panel header="ApplicationForm" style="width: 1000px;height: 1000px">    
+             <p:messages/>
+             <h:panelGrid columns="2" style="width: 900px; height: 100px">
+              <p:outputLabel value="Job Id:"/>
+              <h:outputText id="jobId"   value="#{applicationForm.objectId}"/>
+              
+              <p:outputLabel value="Applicant Id:"/>
+              <h:outputText id="applicantId" value="#{login.loginID}"/>
+         
+              <p:outputLabel value="Name:"/>
+              <p:inputText id="name" required="true" requiredMessage="Name cannot be empty" value="#{applicationForm.name}"/>
+              
+              <p:outputLabel value="Age:"/>
+              <p:inputText id="age" value="#{applicationForm.age}" required="true" requiredMessage="Age cannot be empty" />
+              
+              <p:outputLabel value="Gender:"/>
+              <p:inputText id="gender" required="true" requiredMessage="Gender cannor be empty" value="#{applicationForm.gender}"/>
+              
+              <p:outputLabel value="Email Id:"/>
+              <p:inputText id="emailId" value="#{applicationForm.emailID}"/>
+              
+              <p:outputLabel value="Mobile Num:"/>
+              <p:inputText id="mobilenum" value="#{applicationForm.mobileNum}"/>        
+              
+              <p:outputLabel value="Education:"/>
+              <p:inputText id="education" required="true" requiredMessage="Educantion cannot be empty" value="#{applicationForm.education}"/>
+              
+              <p:outputLabel value="Work Experience:"/>
+              <p:inputText id="workexp" required="true" requiredMessage="Work-experience cannot be empty" value="#{applicationForm.workExp}"/>
+              
+              <br></br>
+              <br></br>
+              <h:commandButton action="#{applicationForm.ApplicationSubmit(login.loginID)}" value="Submit">   
+              </h:commandButton>
+               
+            </h:panelGrid>
+            
+            </p:panel>
+        </h:form>
+        </ui:define>
+        </ui:composition>
+        
+    </h:body>
+</html>

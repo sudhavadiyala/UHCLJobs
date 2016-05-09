@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Online Job Portal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div>
+            <h:form>
+               
+                <div>
+                    <h:graphicImage url="/Images/banner_employment2.jpg" style="margin-top: 10px" width="900px" height="200px"></h:graphicImage> 
+                </div>
+                <b:commandButton class="btn btn-primary" value="HR Home" action="HRView.xhtml"></b:commandButton>
+                <b:commandButton class="btn btn-primary"  value="View Jobs" action="ViewJobs.xhtml" style="margin-left: 20px "/>
+                <b:commandButton value="Sign Out" style="margin-left: 20px" action="index.xhtml" class="btn btn-warning"/>
+                </h:form>
+        </div>
+    </h:body>
+</html>

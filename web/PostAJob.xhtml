@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    
+    <h:head>
+        <title>PostAJob</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                
+        
+        <h2>Welcome #{login.loginID}..!!</h2>
+        <h3>
+           Please fill the details to Post a Job:
+        </h3>
+        <h:form id="postAJobForm">
+            <p:panel header="Post A Job" style="width: 800px; height: 400px">
+            <h:panelGrid columns="2">
+            <p>
+                Job Title:
+                <p:inputText id="jobTitle" required="true" requiredMessage="Job title cannot be empty"
+                             value="#{jobPosting.jobtitle}"/>          
+            </p>
+            <p>
+                Job Description:
+                <p:inputText id="jobdesc" required="true" requiredMessage="Job Description cannot be empty"
+                             value="#{jobPosting.jobdesc}"/>          
+            </p>
+            <p>
+                Skills:
+                <p:inputText id="skills" required="true" requiredMessage="Skills cannot be empty"
+                             value="#{jobPosting.skills}"/>          
+            </p>
+            <p>
+                No.of Positions:
+                <p:inputText id="positions" required="true" requiredMessage="Positions cannot be empty"
+                             value="#{jobPosting.positions}"/>        
+            </p>
+                <br/>
+         <p>
+ 
+                <b:commandButton id="submit" class="btn btn-primary" value="Submit" action="#{jobPosting.JobPost()}"></b:commandButton>
+         </p>
+                <h:messages style="color: red"></h:messages>
+               
+                </h:panelGrid>
+                </p:panel>
+        </h:form>
+        </ui:define>
+
+        </ui:composition>
+    </h:body>
+        
+</html>
