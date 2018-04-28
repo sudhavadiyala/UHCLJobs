@@ -10,9 +10,9 @@
  */
 public class Application 
 {
-    private String emailid;
-    private String applicantid;
-    private int jobid;
+    private String emailId;
+    private String applicantId;
+    private int jobId;
     private String status;
     private int id;
     private String message;
@@ -20,43 +20,43 @@ public class Application
     /**
      * @return the applicantid
      */
-    public String getApplicantid() {
-        return applicantid;
+    public String getApplicantId() {
+        return applicantId;
     }
 
     /**
      * @return the emailid
      */
     public String getEmailid() {
-        return emailid;
+        return emailId;
     }
 
     /**
      * @return the jobid
      */
-    public int getJobid() {
-        return jobid;
+    public int getJobId() {
+        return jobId;
     }
 
     /**
      * @param applicantid the applicantid to set
      */
-    public void setApplicantid(String applicantid) {
-        this.applicantid = applicantid;
+    public void setApplicantId(String applicantId) {
+        this.applicantId = applicantId;
     }
 
     /**
      * @param emailid the emailid to set
      */
-    public void setEmailid(String emailid) {
-        this.emailid = emailid;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     /**
      * @param jobid the jobid to set
      */
-    public void setJobid(int jobid) {
-        this.jobid = jobid;
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
     }
 
     /**
